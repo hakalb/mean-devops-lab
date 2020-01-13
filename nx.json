@@ -10,5 +10,12 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {}
+  "projects": {
+    "todos-e2e": {
+      "tags": []
+    },
+    "todos": {
+      "tags": []
+    }
+  }
 }
