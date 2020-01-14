@@ -8,6 +8,8 @@
   <h6>No todos</h6>
 </ng-template>
 
+<button id="add-todo" (click)="addTodo()">Add Todo</button>
+
 <ng-container *ngIf="todos$ | async as todos; else loading">
   <ul *ngIf="todos.length > 0; else noTodos">
     <li *ngFor="let t of todos" class="todo">
@@ -16,4 +18,3 @@
   </ul>
 </ng-container>
 
-<button id="add-todo" (click)="addTodo()">Add Todo</button>

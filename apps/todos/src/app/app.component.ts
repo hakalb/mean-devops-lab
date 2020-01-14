@@ -17,10 +17,14 @@ export class AppComponent {
   todos$: Observable<Todo[]>;
 
   constructor(private http: HttpClient) {
+    this.getTodos();
+  }
+
+  getTodos() {
     this.todos$ = this.http.get<Todo[]>('/api/todos');
   }
 
   addTodo() {
-    this.http.post('/api/addTodo', {}).subscribe();
+    this.todos$ = this.http.post<Todo[]>('/api/addTodo', {});
   }
 }
