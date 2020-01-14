@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 interface Todo {
   title: String;
@@ -7,15 +9,18 @@ interface Todo {
 @Component({
   selector: 'mean-devops-lab-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
   title = 'todos';
-  todos: Todo[] = [{ title: 'Todo 1' }, { title: 'Todo 2' }];
+  todos$: Observable<Todo[]>;
+
+  constructor(private http: HttpClient) {
+    this.todos$ = this.http.get<Todo[]>('/api/todos');
+  }
 
   addTodo() {
-    this.todos.push({
-      title: `New todo ${Math.floor(Math.random() * 1000)}`
-    });
+    this.http.post('/api/addTodo', {}).subscribe();
   }
 }
