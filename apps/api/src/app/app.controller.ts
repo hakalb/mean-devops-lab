@@ -1,6 +1,6 @@
 import { Controller, Get, Post } from '@nestjs/common';
-
-import { AppService, Todo } from './app.service';
+import { Todo } from '@mean-devops-lab/data';
+import { AppService } from './app.service';
 
 @Controller()
 export class AppController {

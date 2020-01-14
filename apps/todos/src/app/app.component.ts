@@ -1,10 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-interface Todo {
-  title: String;
-}
+import { Todo } from '@mean-devops-lab/data';
 
 @Component({
   selector: 'mean-devops-lab-root',

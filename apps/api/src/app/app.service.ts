@@ -1,9 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { BehaviorSubject } from 'rxjs';
-
-export interface Todo {
-  title: String;
-}
+import { Todo } from '@mean-devops-lab/data';
 
 @Injectable()
 export class AppService {
