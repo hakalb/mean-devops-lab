@@ -4,7 +4,7 @@ import { Todo } from '@mean-devops-lab/data';
 
 @Injectable()
 export class AppService {
-  private todos$ = new BehaviorSubject<Todo[]>([{ title: 'First todo' }]);
+  private todos$ = new BehaviorSubject<Todo[]>([]);
 
   getData(): Todo[] {
     return this.todos$.getValue();

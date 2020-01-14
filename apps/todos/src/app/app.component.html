@@ -1,20 +1,5 @@
 <h1>My Todos</h1>
 
-<ng-template #loading>
-  <h6>Loading todos...</h6>
-</ng-template>
-
-<ng-template #noTodos>
-  <h6>No todos</h6>
-</ng-template>
-
 <button id="add-todo" (click)="addTodo()">Add Todo</button>
 
-<ng-container *ngIf="todos$ | async as todos; else loading">
-  <ul *ngIf="todos.length > 0; else noTodos">
-    <li *ngFor="let t of todos" class="todo">
-      {{ t.title }}
-    </li>
-  </ul>
-</ng-container>
-
+<mean-devops-lab-todos [todos$]="todos$"></mean-devops-lab-todos>

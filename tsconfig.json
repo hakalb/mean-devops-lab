@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@mean-devops-lab/data": ["libs/data/src/index.ts"]
+      "@mean-devops-lab/data": ["libs/data/src/index.ts"],
+      "@mean-devops-lab/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

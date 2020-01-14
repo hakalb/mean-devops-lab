@@ -1,0 +1,7 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [true, "attribute", "meanDevopsLab", "camelCase"],
+    "component-selector": [true, "element", "mean-devops-lab", "kebab-case"]
+  }
+}
