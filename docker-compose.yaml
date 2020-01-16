@@ -1,0 +1,58 @@
+version: '3'
+services:
+  app-todos:
+    container_name: mdl-todos
+    image: mdl-todos
+    build:
+      context: ./
+      dockerfile: ./apps/todos/Dockerfile
+    ports:
+      - '4200:4200'
+#      - '4243:443'
+    links:
+      # Make rest-api available as http://api/ and setup proxy_pass in nginx.conf
+      - rest-api:api
+    depends_on:
+      - rest-api
+    networks:
+      - mdl-network
+
+  rest-api:
+    container_name: mdl-api
+    image: mdl-api
+    build:
+      context: ./
+      dockerfile: ./apps/api/Dockerfile
+#    environment:
+#      - NODE_ENV=development
+    ports:
+      - '3333:3333'
+#    depends_on:
+#      - nest-mongodb
+    networks:
+      - mdl-network
+
+#  nest-mongodb:
+#    container_name: mongodb
+#    image: mongo
+#    ports:
+#      - '27017:27017'
+#    networks:
+#      - mdl-network
+
+#  cadvisor:
+#    container_name: cadvisor
+#    image: google/cadvisor
+#    volumes:
+#      - /:/rootfs:ro
+#      - /var/run:/var/run:rw
+#      - /sys:/sys:ro
+#      - /var/lib/docker/:/var/lib/docker:ro
+#    ports:
+#      - '8080:8080'
+#    networks:
+#      - mdl-network
+
+networks:
+  mdl-network:
+    driver: bridge
