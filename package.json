@@ -29,12 +29,7 @@
     "update:check": "ng update",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help",
-    "docker:build": "run-s docker:build-api docker:build-todos",
-    "docker:build-api": "docker image build -t mdl-api -f apps/api/Dockerfile .",
-    "docker:build-todos": "docker image build -t mdl-todos -f apps/todos/Dockerfile .",
-    "docker:up": "docker-compose up -d",
-    "docker:down": "docker-compose down"
+    "help": "nx help"
   },
   "private": true,
   "dependencies": {
