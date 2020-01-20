@@ -18,6 +18,7 @@
   - [Running end-to-end tests](#running-end-to-end-tests)
   - [Understand your workspace](#understand-your-workspace)
   - [Further help](#further-help)
+- [4. References](#4-references)
 
 ## 1. Purpose of project
 
@@ -85,7 +86,7 @@ docker-compose up --force-recreate -d
 
 ## 3. Use Nx to evolve the stack
 
-> Nx auto generated documentation!  
+> Nx auto generated documentation!
 
 This project was initially generated using [Nx](https://nx.dev), which is a set of Extensible Dev Tools for Monorepos.
 
@@ -136,3 +137,10 @@ Run `nx dep-graph` to see a diagram of the dependencies of your projects.
 ### Further help
 
 Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
+
+## 4. References
+
+- <https://minikube.sigs.k8s.io/>
+- <https://github.com/ibenjelloun/chat-room>
+- <https://github.com/kostis-codefresh/nestjs-example>
+- <https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md>
