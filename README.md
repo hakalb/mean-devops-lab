@@ -1,21 +1,93 @@
-# mean-devops-lab
+# Angular Multi Stack Lab <!-- omit in toc -->
 
-## Purpose of project
+## Content <!-- omit in toc -->
 
-Create a full stack application using
-* Angular
-* Nest
-* MongoDB
+- [1. Purpose of project](#1-purpose-of-project)
+- [2. Managing development](#2-managing-development)
+  - [Start application stack on virtual servers with live reload](#start-application-stack-on-virtual-servers-with-live-reload)
+  - [Start application stack as Docker background process](#start-application-stack-as-docker-background-process)
+  - [Stop application stack and cleanup containers and networks](#stop-application-stack-and-cleanup-containers-and-networks)
+  - [Rebuild application stack](#rebuild-application-stack)
+- [3. Use Nx to evolve the stack](#3-use-nx-to-evolve-the-stack)
+  - [Generate an application](#generate-an-application)
+  - [Generate a library](#generate-a-library)
+  - [Development server](#development-server)
+  - [Code scaffolding](#code-scaffolding)
+  - [Build](#build)
+  - [Running unit tests](#running-unit-tests)
+  - [Running end-to-end tests](#running-end-to-end-tests)
+  - [Understand your workspace](#understand-your-workspace)
+  - [Further help](#further-help)
 
-Containerize the stack in _development_ using `docker-compose`.
+## 1. Purpose of project
 
-Containerize and orchestrate the stack in _staging and production_ using `Kubernetes`.
+Create a multi stack application using
 
-Simulate deployment using a local `Kubernetes` cluster created with `minicube`.
+- `Angular` _as front end client_
+- `Nest` _as backend rest and push api_
+- `MongoDB` _as NoSql database_
+- `Nx` _as monorepo developer tool_
+- `docker-compose` _to containerize and start/stop the stack (development)_
+- `minikube` _to containerize and orchestrate the stack (development)_
 
-## Use Nx to evolve the stack
+The stack will be deployed to `Kubernetes` using a cloud privider with `DevOps` capabilities, e.g:
 
-> This project was initially generated using [Nx](https://nx.dev), which is a set of Extensible Dev Tools for Monorepos.
+- `Codefresh` _as CI/CD tool_
+- `DigitalOcean` _as host provider_
+
+## 2. Managing development
+
+### Start application stack on virtual servers with live reload
+
+This is the normal case when developing code. Every code change trigger a rebuild and browser refresh.
+
+```bash
+npm start
+```
+
+> Open browser and navigate to <http://localhost:4200>
+
+It's also possible to activate debugging when using virtuel servers.
+
+### Start application stack as Docker background process
+
+> This lets the user test the stack built for production. Note! Everything is built when images are missing.
+
+```bash
+docker-compose up -d
+```
+
+> Open browser and navigate to <http://localhost>
+
+View container details.
+
+```bash
+docker ps
+```
+
+### Stop application stack and cleanup containers and networks
+
+```bash
+docker-compose down
+```
+
+### Rebuild application stack
+
+```bash
+docker-compose build --parallel
+```
+
+or open and force a rebuild at the same time
+
+```bash
+docker-compose up --force-recreate -d
+```
+
+## 3. Use Nx to evolve the stack
+
+> Nx auto generated documentation!  
+
+This project was initially generated using [Nx](https://nx.dev), which is a set of Extensible Dev Tools for Monorepos.
 
 ### Generate an application
 
@@ -61,6 +133,6 @@ Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
 
 Run `nx dep-graph` to see a diagram of the dependencies of your projects.
 
-## Further help
+### Further help
 
 Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
